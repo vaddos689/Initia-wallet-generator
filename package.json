@@ -1,0 +1,22 @@
+{
+  "name": "initia-wallet-generator",
+  "version": "1.0.0",
+  "description": "Tool for generating Initia blockchain wallets",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["initia", "blockchain", "wallet", "generator"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@initia/initia.js": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
