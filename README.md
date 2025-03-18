@@ -33,7 +33,7 @@ yarn install
 
 1. Run the script:
 ```bash
-npm run build
+tsc
 ```
 ```bash
 npm run start

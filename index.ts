@@ -1,4 +1,5 @@
 import { MnemonicKey } from '@initia/initia.js';
+import { ethers } from 'ethers';
 import * as fs from 'fs';
 import * as readline from 'readline';
 
@@ -8,11 +9,15 @@ const rl = readline.createInterface({
 });
 
 function generateWallets(count: number): void {
-    let csvContent = 'mnemonic,address\n';
+    let csvContent = 'mnemonic,address,evm_private_key\n';
     
     for (let i = 0; i < count; i++) {
         const key = new MnemonicKey();
-        csvContent += `${key.mnemonic},${key.accAddress}\n`;
+        // Get EVM private key from mnemonic
+        const evmWallet = ethers.Wallet.fromPhrase(key.mnemonic);
+        const evmPrivateKey = evmWallet.privateKey;
+        
+        csvContent += `${key.mnemonic},${key.accAddress},${evmPrivateKey}\n`;
     }
 
     fs.writeFileSync('wallets.csv', csvContent);
